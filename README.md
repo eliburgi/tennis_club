@@ -25,5 +25,9 @@ Available on Android, iOS and the web.
 - Develop some cool domain specific (i.e. tennis) widgets
 
 ## What I´ve learned
-I will update this when the project is completed. 
+- TDD requires a lot more time (but green tests are pretty cool ;P)
+- TDD makes you think more about good abstraction
+- writing date and time independent tests is important
+
+I will keep adding stuff here as the project progresses. 
 
