@@ -28,6 +28,7 @@ Available on Android, iOS and the web.
 - TDD requires a lot more time (but green tests are pretty cool ;P)
 - TDD makes you think more about good abstraction
 - writing date and time independent tests is important
+- using GitHub Milestones (+Issues) for project management 
 
 I will keep adding stuff here as the project progresses. 
 
