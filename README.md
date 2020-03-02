@@ -22,7 +22,6 @@ Available on Android, iOS and the web.
   - How to model data? 
   - etc. 
 - Design and develop responsive layouts in Flutter (for smartphone, tablet, pc)
-- Atomic Design (https://bradfrost.com/blog/post/atomic-web-design/)
 - Develop some cool domain specific (i.e. tennis) widgets
 
 ## What I´ve learned
