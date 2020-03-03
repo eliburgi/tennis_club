@@ -7,24 +7,30 @@ class HomePageLayoutMobile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 2,
+      length: 3,
       child: Scaffold(
         appBar: ShiftingTabBar(
+          forceUpperCase: true,
           tabs: [
             ShiftingTab(
-              text: 'Item A',
+              text: 'Home',
               icon: HomeIcon(),
             ),
             ShiftingTab(
-              text: 'Item B',
-              icon: Icon(Icons.whatshot),
+              text: 'Courts',
+              icon: CourtIcon(),
+            ),
+            ShiftingTab(
+              text: 'Profile',
+              icon: ProfileIcon(),
             ),
           ],
         ),
         body: TabBarView(
           children: [
-            Center(child: Text('Item A')),
-            Center(child: Text('Item B')),
+            Center(child: Text('Home')),
+            Center(child: Text('Courts')),
+            Center(child: Text('Profile')),
           ],
         ),
       ),

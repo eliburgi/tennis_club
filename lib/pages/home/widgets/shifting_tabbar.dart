@@ -1,9 +1,6 @@
-library shifting_tabbar;
-
 import 'package:flutter/material.dart';
 
-// Author: mahdizakizadeh.me@gmail.com
-// BASED ON: https://pub.dev/packages/shifting_tabbar
+// BASED ON: https://pub.dev/packages/shifting_tabbar (by mahdizakizadeh.me@gmail.com)
 
 /// A widget that displays a horizontal row of tabs with some kind of shifting animation.
 ///
@@ -162,7 +159,7 @@ class ShiftingTab {
 
   final Key key;
   final String text;
-  final Icon icon;
+  final Widget icon;
 }
 
 class _ShiftingTabWidget extends AnimatedWidget {
@@ -180,7 +177,7 @@ class _ShiftingTabWidget extends AnimatedWidget {
 
   final Function onTap;
   final String text;
-  final Icon icon;
+  final Widget icon;
   final double margin;
   final Brightness brightness;
   final double labelFlex;
