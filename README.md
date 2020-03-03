@@ -22,12 +22,14 @@ Available on Android, iOS and the web.
   - How to model data? 
   - etc. 
 - Design and develop responsive layouts in Flutter (for smartphone, tablet, pc)
+- Explore ThemeData
 - Develop some cool domain specific (i.e. tennis) widgets
 
 ## What I´ve learned
 - TDD requires a lot more time (but green tests are pretty cool ;P)
 - TDD makes you think more about good abstraction
 - writing date and time independent tests is important
+- using GitHub Milestones (+Issues) for project management 
 
 I will keep adding stuff here as the project progresses. 
 
