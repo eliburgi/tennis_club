@@ -9,7 +9,8 @@ final tennisClubTheme = ThemeData.light().copyWith(
   accentColor: const Color(0xFFFF6776),
   accentColorBrightness: Brightness.light,
 
-  textTheme: const TextTheme(
+  // TEXT
+  textTheme: Typography.blackCupertino.copyWith(
     subtitle2: TextStyle(
       fontFamily: 'Raleway',
       fontSize: 14.0,
