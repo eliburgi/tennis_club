@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shifting_tabbar/shifting_tabbar.dart';
+
+import '../widgets/shifting_tabbar.dart';
+import '../widgets/icons.dart';
 
 class HomePageLayoutMobile extends StatelessWidget {
   @override
@@ -11,7 +13,7 @@ class HomePageLayoutMobile extends StatelessWidget {
           tabs: [
             ShiftingTab(
               text: 'Item A',
-              icon: Icon(Icons.weekend),
+              icon: HomeIcon(),
             ),
             ShiftingTab(
               text: 'Item B',
