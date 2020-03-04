@@ -58,14 +58,28 @@ void main() {
       verify(authService.loginWithEmail(any, any)).called(1);
     });
 
-    test('account does exist', () async {
+    test('correct email but wrong password', () async {
+      when(authService.loginWithEmail(any, any))
+          .thenAnswer((_) => throw AuthException.wrongPassword);
+
+      final email = 'user@mail.com';
+      final wrongPw = 'wrongPassword';
+
+      try {
+        await usecase.loginWithEmail(email, wrongPw);
+      } on LoginException catch (e) {
+        expect(e.code, LoginExceptionCode.wrongPassword);
+      }
+      verify(authService.loginWithEmail(any, any)).called(1);
+    });
+
+    test('correct email & password', () async {
       final user = User(id: 'ID', name: 'User');
       final email = 'user@mail.com';
       final pw = 'password';
-
       when(authService.loginWithEmail(any, any)).thenAnswer((_) async => user);
 
-      expect(await usecase.loginWithEmail(email, pw), user);
+      expect(await authService.loginWithEmail(email, pw), user);
       verify(authService.loginWithEmail(any, any)).called(1);
     });
   });
