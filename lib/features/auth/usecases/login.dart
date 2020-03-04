@@ -18,7 +18,7 @@ class LoginUseCase {
   /// Throws [LoginException] if [email] or [password] are invalid, or
   /// no account for [email] exists, or the wrong [password is used].
   /// To differentiate between these exceptions, use [LoginException.code].
-  Future<User> loginWithEmail(String email, String password) {
+  Future<User> loginWithEmail(String email, String password) async {
     if (!_isValidEmail(email)) {
       throw LoginException(
         LoginExceptionCode.invalidEmail,
@@ -32,8 +32,26 @@ class LoginUseCase {
         '\'$password\' is not a valid password!',
       );
     }
-    // TODO: perform simple email and password validation
-    throw UnimplementedError();
+
+    try {
+      User user = await _authService.loginWithEmail(email, password);
+      return user;
+    } on AuthException catch (e) {
+      switch (e) {
+        case AuthException.accountDoesNotExist:
+          throw LoginException(
+            LoginExceptionCode.accountDoesNotExist,
+            'Account does not exist or wrong Password is used!',
+          );
+        case AuthException.wrongPassword:
+          throw LoginException(
+            LoginExceptionCode.wrongPassword,
+            'Account does not exist or wrong Password is used!',
+          );
+        default:
+          throw StateError('Unknown exception: $e');
+      }
+    }
   }
 }
 

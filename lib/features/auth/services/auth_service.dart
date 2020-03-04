@@ -5,14 +5,14 @@ abstract class AuthService {
   ///
   /// Returns the [User] if [email] and [password] are correct.
   ///
-  /// Throws [AuthError] if no account for the given [email] exists or
+  /// Throws [AuthException] if no account for the given [email] exists or
   /// the wrong [password] is used.
   Future<User> loginWithEmail(String email, String password) {
     throw UnimplementedError();
   }
 }
 
-enum AuthError {
+enum AuthException {
   accountDoesNotExist,
   wrongPassword,
 }

@@ -2,6 +2,7 @@
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:tennis_club/features/auth/models/user.dart';
 import 'package:tennis_club/features/auth/services/auth_service.dart';
 import 'package:tennis_club/features/auth/usecases/login.dart';
 
@@ -25,7 +26,6 @@ void main() {
       try {
         await usecase.loginWithEmail(invalidEmail, pw);
       } on LoginException catch (e) {
-        expect(e, isA<LoginException>());
         expect(e.code, LoginExceptionCode.invalidEmail);
       }
       verifyNever(authService.loginWithEmail(any, any));
@@ -38,10 +38,35 @@ void main() {
       try {
         await usecase.loginWithEmail(email, invalidPassword);
       } on LoginException catch (e) {
-        expect(e, isA<LoginException>());
         expect(e.code, LoginExceptionCode.invalidPassword);
       }
       verifyNever(authService.loginWithEmail(any, any));
+    });
+
+    test('account does not exist', () async {
+      when(authService.loginWithEmail(any, any))
+          .thenAnswer((_) => throw AuthException.accountDoesNotExist);
+
+      final email = 'user@mail.com';
+      final pw = 'password';
+
+      try {
+        await usecase.loginWithEmail(email, pw);
+      } on LoginException catch (e) {
+        expect(e.code, LoginExceptionCode.accountDoesNotExist);
+      }
+      verify(authService.loginWithEmail(any, any)).called(1);
+    });
+
+    test('account does exist', () async {
+      final user = User(id: 'ID', name: 'User');
+      final email = 'user@mail.com';
+      final pw = 'password';
+
+      when(authService.loginWithEmail(any, any)).thenAnswer((_) async => user);
+
+      expect(await usecase.loginWithEmail(email, pw), user);
+      verify(authService.loginWithEmail(any, any)).called(1);
     });
   });
 }
