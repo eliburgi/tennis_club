@@ -13,7 +13,6 @@ abstract class AuthService {
 }
 
 enum AuthError {
-  invalidEmail,
-  invalidPassword,
-  noConnection,
+  accountDoesNotExist,
+  wrongPassword,
 }
