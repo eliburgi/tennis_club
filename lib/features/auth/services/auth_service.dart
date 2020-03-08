@@ -1,18 +1,12 @@
 import '../models/user.dart';
 
 abstract class AuthService {
-  /// Logs in the user with his email and password.
+  /// Logs in the user.
   ///
-  /// Returns the [User] if [email] and [password] are correct.
+  /// Returns the authenticated [User] if [email] and [password] are correct.
   ///
-  /// Throws [AuthException] if no account for the given [email] exists or
-  /// the wrong [password] is used.
-  Future<User> loginWithEmail(String email, String password) {
-    throw UnimplementedError();
-  }
-}
-
-enum AuthException {
-  accountDoesNotExist,
-  wrongPassword,
+  /// Throws [AccountNotFoundException] if no account for the given [email]
+  /// exists.
+  /// Throws [WrongPasswordException] if a wrong [password] is used.
+  Future<User> login(String email, String password);
 }
