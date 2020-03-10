@@ -1,11 +1,8 @@
 @TestOn('vm')
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tennis_club/features/auth/errors/errors.dart';
-import 'package:tennis_club/features/auth/models/user.dart';
-import 'package:tennis_club/features/auth/services/auth_service.dart';
-import 'package:tennis_club/features/auth/usecases/login.dart';
 
+/*
 void main() {
   AuthService authService;
   LoginUseCase usecase;
@@ -71,3 +68,4 @@ void main() {
 }
 
 class MockAuthService extends Mock implements AuthService {}
+*/

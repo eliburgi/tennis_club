@@ -1,4 +1,4 @@
-import '../models/user.dart';
+import 'user.dart';
 
 abstract class AuthService {
   /// Logs in the user.

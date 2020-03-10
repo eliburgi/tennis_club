@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'layouts/mobile.dart';
+import 'login_page_mobile.dart';
 
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return LoginPageLayoutMobile();
+    return LoginPageMobile();
   }
 }

@@ -1,10 +1,8 @@
 import 'package:meta/meta.dart';
+import 'package:tennis_club/feature/shared/auth_service.dart';
+import 'package:tennis_club/feature/shared/user.dart';
 
-import '../models/user.dart';
-import '../errors/errors.dart';
-import '../services/auth_service.dart';
-
-class LoginUseCase {
+/*class LoginUseCase {
   LoginUseCase({
     @required AuthService authService,
   })  : assert(authService != null),
@@ -39,3 +37,26 @@ bool _isValidEmail(String email) {
   RegExp regex = new RegExp(pattern);
   return regex.hasMatch(email);
 }
+
+class InvalidEmailException implements Exception {
+  InvalidEmailException(this.email);
+
+  final String email;
+
+  @override
+  String toString() => '${email ?? 'null'} is not a valid email address!';
+}
+
+class WrongPasswordException implements Exception {
+  @override
+  String toString() => 'Wrong password!';
+}
+
+class AccountNotFoundException implements Exception {
+  AccountNotFoundException(this.email) : assert(email != null);
+
+  final String email;
+
+  @override
+  String toString() => 'No account found for email: $email!';
+}*/
