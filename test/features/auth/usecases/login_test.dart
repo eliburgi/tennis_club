@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 @TestOn('vm')
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';

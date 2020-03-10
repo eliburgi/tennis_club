@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
+import 'text/styles.dart';
+import 'input/styles.dart';
 
-final tennisClubTheme = ThemeData.light().copyWith(
-  // COLORS
-  primaryColor: const Color(0xFFFF6776),
-  primaryColorLight: const Color(0xFFFF6776),
-  primaryColorDark: const Color(0xFFFF6776),
-  primaryColorBrightness: Brightness.light,
-  accentColor: const Color(0xFFFF6776),
-  accentColorBrightness: Brightness.light,
+ThemeData buildTheme() => ThemeData.light().copyWith(
+      // COLORS
+      primaryColor: AppColors.primary,
+      primaryColorLight: AppColors.primaryLight,
+      primaryColorDark: AppColors.primaryDark,
+      primaryColorBrightness: AppColors.primaryBrightness,
+      accentColor: AppColors.accent,
+      accentColorBrightness: AppColors.accentBrightness,
 
-  // TEXT
-  textTheme: Typography.blackCupertino.copyWith(
-    subtitle2: TextStyle(
-      fontFamily: 'Raleway',
-      fontSize: 14.0,
-      fontWeight: FontWeight.bold,
-      color: Colors.black,
-    ),
-  ),
-);
+      // TEXT
+      textTheme: TextThemes.normal,
+      primaryTextTheme: TextThemes.onPrimary,
+
+      // TEXT-FIELDS
+      inputDecorationTheme: InputDecorationThemes.normal,
+      cursorColor: InputColors.cursor,
+      textSelectionHandleColor: InputColors.textSelectionHandle,
+    );
