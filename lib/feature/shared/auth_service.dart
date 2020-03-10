@@ -10,3 +10,7 @@ abstract class AuthService {
   /// Throws [WrongPasswordException] if a wrong [password] is used.
   Future<User> login(String email, String password);
 }
+
+class AccountNotFoundException implements Exception {}
+
+class WrongPasswordException implements Exception {}
