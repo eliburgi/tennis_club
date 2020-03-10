@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
 import 'text/styles.dart';
-import 'input/styles.dart';
+import 'inputs/styles.dart';
 
 ThemeData buildTheme() => ThemeData.light().copyWith(
       // COLORS

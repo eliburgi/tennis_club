@@ -1,8 +1,9 @@
 @TestOn('vm')
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
+import 'package:tennis_club/feature/shared/auth_service.dart';
+import 'package:tennis_club/feature/login/login_usecase.dart';
 
-/*
 void main() {
   AuthService authService;
   LoginUseCase usecase;
@@ -31,8 +32,8 @@ void main() {
       final notRegisteredEmail = 'not.found@test.com';
       final pw = 'password';
 
-      when(authService.login(any, any)).thenAnswer(
-          (_) => throw AccountNotFoundException(notRegisteredEmail));
+      when(authService.login(any, any))
+          .thenAnswer((_) => throw AuthServiceException.accountNotFound);
 
       expect(
         () => usecase.loginWithEmail(notRegisteredEmail, pw),
@@ -46,7 +47,7 @@ void main() {
       final wrongPw = 'wrongPassword';
 
       when(authService.login(any, any))
-          .thenAnswer((_) => throw WrongPasswordException());
+          .thenAnswer((_) => throw AuthServiceException.wrongPassword);
 
       expect(
         () => usecase.loginWithEmail(email, wrongPw),
@@ -68,4 +69,3 @@ void main() {
 }
 
 class MockAuthService extends Mock implements AuthService {}
-*/

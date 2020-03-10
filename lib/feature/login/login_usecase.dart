@@ -1,8 +1,9 @@
 import 'package:meta/meta.dart';
 import 'package:tennis_club/feature/shared/auth_service.dart';
 import 'package:tennis_club/feature/shared/user.dart';
+import 'login_utils.dart';
 
-/*class LoginUseCase {
+class LoginUseCase {
   LoginUseCase({
     @required AuthService authService,
   })  : assert(authService != null),
@@ -19,23 +20,28 @@ import 'package:tennis_club/feature/shared/user.dart';
   /// exists.
   /// Throws [WrongPasswordException] if a wrong [password] is used.
   Future<User> loginWithEmail(String email, String password) async {
-    if (!_isValidEmail(email)) {
+    if (!LoginUtils.validateEmail(email)) {
       throw InvalidEmailException(email);
     }
 
-    // For the sake of simplicity share the error models between
-    // the services and usecases.
-    return await _authService.login(email, password);
+    try {
+      User user = await _authService.login(email, password);
+      return user;
+    } catch (e) {
+      switch (e) {
+        case AuthServiceException.accountNotFound:
+          throw AccountNotFoundException(email);
+        case AuthServiceException.wrongPassword:
+          throw WrongPasswordException(password);
+        default:
+          // TODO: handle unknown errors somehow
+          throw StateError(
+            'AuthService::login throws an exception that is not handled'
+            'by LoginUseCase! Cause: $e',
+          );
+      }
+    }
   }
-}
-
-bool _isValidEmail(String email) {
-  if (email == null) return false;
-
-  Pattern pattern =
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-  RegExp regex = new RegExp(pattern);
-  return regex.hasMatch(email);
 }
 
 class InvalidEmailException implements Exception {
@@ -48,6 +54,10 @@ class InvalidEmailException implements Exception {
 }
 
 class WrongPasswordException implements Exception {
+  WrongPasswordException(this.password);
+
+  final String password;
+
   @override
   String toString() => 'Wrong password!';
 }
@@ -59,4 +69,4 @@ class AccountNotFoundException implements Exception {
 
   @override
   String toString() => 'No account found for email: $email!';
-}*/
+}
