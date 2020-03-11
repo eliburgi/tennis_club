@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tennis_club/theme/theme.dart';
+import 'package:tennis_club/theme.dart';
 
 import 'package:tennis_club/feature/login/login_page.dart';
 

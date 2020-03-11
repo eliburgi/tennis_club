@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:tennis_club/theme/buttons.dart';
 
 class LoginButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return Container(
+      width: double.infinity,
       padding: const EdgeInsets.all(8.0),
       child: FlatButton(
-        color: ButtonColors.onPrimary,
+        padding: const EdgeInsets.all(16.0),
+        color: Theme.of(context).primaryColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(100.0),
+        ),
+        textTheme: ButtonTextTheme.primary,
         onPressed: () {},
         child: Text(
-          'LOGIN',
+          'Sign In',
         ),
       ),
     );

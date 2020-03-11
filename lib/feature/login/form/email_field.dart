@@ -23,17 +23,14 @@ class _EmailFormFieldState extends State<EmailFormField> {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 32.0, vertical: 8.0),
-      child: TextFormField(
-        controller: _controller,
-        decoration: InputDecoration(
-          prefixIcon: Icon(
-            Icons.email,
-            color: Theme.of(context).primaryColor,
-          ),
-          hintText: 'Email',
+    return TextFormField(
+      controller: _controller,
+      decoration: InputDecoration(
+        prefixIcon: Icon(
+          Icons.email,
+          color: Theme.of(context).iconTheme.color,
         ),
+        hintText: 'Email',
       ),
     );
   }
