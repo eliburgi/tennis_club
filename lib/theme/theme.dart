@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'colors.dart';
-import 'text/styles.dart';
-import 'inputs/styles.dart';
+import 'buttons.dart';
+import 'text.dart';
+import 'inputs.dart';
 
 ThemeData buildTheme() => ThemeData.light().copyWith(
       // COLORS
@@ -20,4 +21,7 @@ ThemeData buildTheme() => ThemeData.light().copyWith(
       inputDecorationTheme: InputDecorationThemes.normal,
       cursorColor: InputColors.cursor,
       textSelectionHandleColor: InputColors.textSelectionHandle,
+
+      // BUTTONS
+      buttonTheme: ButtonThemes.normal,
     );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tennis_club/theme/inputs/styles.dart';
-import 'package:tennis_club/theme/text/styles.dart';
+import 'package:tennis_club/feature/login/form/login_button.dart';
+import 'package:tennis_club/theme/inputs.dart';
+import 'package:tennis_club/theme/text.dart';
 
 import 'email_field.dart';
 import 'password_field.dart';
@@ -22,6 +23,7 @@ class LoginForm extends StatelessWidget {
           children: <Widget>[
             EmailFormField(),
             PasswordFormField(),
+            LoginButton(),
           ],
         ),
       ),

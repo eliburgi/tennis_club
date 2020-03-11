@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import '../colors.dart';
-import '../text/styles.dart';
+import 'colors.dart';
+import 'text.dart';
 
 abstract class InputColors {
   static const cursor = AppColors.primaryDark2;

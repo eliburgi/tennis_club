@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../colors.dart';
+import 'colors.dart';
 
 abstract class TextColors {
   // text that contrasts with the normal background color (e.g. white)
@@ -24,18 +24,27 @@ abstract class TextStyles {
     fontWeight: FontWeight.bold,
     color: TextColors.normal,
   );
+
+  static const button = TextStyle(
+    fontFamily: 'Raleway',
+    fontSize: 14.0,
+    fontWeight: FontWeight.bold,
+    color: TextColors.normal,
+  );
 }
 
 abstract class TextThemes {
   static const normal = TextTheme(
     subtitle1: TextStyles.subtitle1,
     subtitle2: TextStyles.subtitle2,
+    button: TextStyles.button,
   );
 
   static final onPrimary = normal.merge(
     TextTheme(
       subtitle1: TextStyle(color: TextColors.onPrimary),
       subtitle2: TextStyle(color: TextColors.onPrimary),
+      button: TextStyle(color: TextColors.onPrimary),
     ),
   );
 
@@ -43,6 +52,7 @@ abstract class TextThemes {
     TextTheme(
       subtitle1: TextStyle(color: TextColors.onPrimaryDark),
       subtitle2: TextStyle(color: TextColors.onPrimaryDark),
+      button: TextStyle(color: TextColors.onPrimaryDark),
     ),
   );
 
@@ -50,6 +60,7 @@ abstract class TextThemes {
     TextTheme(
       subtitle1: TextStyle(color: TextColors.onPrimaryDark2),
       subtitle2: TextStyle(color: TextColors.onPrimaryDark2),
+      button: TextStyle(color: TextColors.onPrimaryDark2),
     ),
   );
 }
