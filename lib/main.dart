@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:tennis_club/theme.dart';
 
-import 'package:tennis_club/feature/login/login_page.dart';
+import 'package:tennis_club/feature/auth/login/login_page.dart';
 
 void main() => runApp(TennisClubApp());
 

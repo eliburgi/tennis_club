@@ -1,6 +1,6 @@
 import 'package:meta/meta.dart';
-import 'package:tennis_club/feature/shared/auth_service.dart';
-import 'package:tennis_club/feature/shared/user.dart';
+import 'package:tennis_club/feature/auth/auth_service.dart';
+import 'package:tennis_club/feature/auth/user.dart';
 import 'login_utils.dart';
 
 class LoginUseCase {
