@@ -33,6 +33,7 @@ abstract class AppColors {
   static const accentBrightness = primaryBrightness;
 
   static const scaffoldBackground = Color(0xFFFCFCFC);
+  static const error = primary;
 }
 
 abstract class TextColors {
@@ -67,6 +68,12 @@ abstract class TextThemes {
       fontWeight: FontWeight.bold,
       color: TextColors.normal1,
     ),
+    caption: TextStyle(
+      fontFamily: 'Raleway',
+      fontSize: 12.0,
+      fontWeight: FontWeight.bold,
+      color: TextColors.normal1,
+    ),
   );
 
   static final onPrimary = normal.merge(
@@ -88,6 +95,9 @@ abstract class InputDecorationThemes {
     filled: true,
     fillColor: Colors.black.withOpacity(0.05),
     border: OutlineInputBorder(borderSide: BorderSide.none),
+    errorStyle: TextThemes.normal.caption.copyWith(
+      color: AppColors.error,
+    ),
   );
 }
 

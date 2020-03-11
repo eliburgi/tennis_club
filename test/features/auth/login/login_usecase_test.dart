@@ -1,8 +1,9 @@
 @TestOn('vm')
-import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tennis_club/feature/shared/auth_service.dart';
-import 'package:tennis_club/feature/login/login_usecase.dart';
+import 'package:flutter_test/flutter_test.dart';
+
+import 'package:tennis_club/feature/auth/auth_service.dart';
+import 'package:tennis_club/feature/auth/login/login_usecase.dart';
 
 void main() {
   AuthService authService;
