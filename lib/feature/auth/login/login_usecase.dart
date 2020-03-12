@@ -1,7 +1,7 @@
 import 'package:meta/meta.dart';
 import 'package:tennis_club/feature/auth/auth_service.dart';
+import 'package:tennis_club/feature/auth/auth_utils.dart';
 import 'package:tennis_club/feature/auth/user.dart';
-import 'login_utils.dart';
 
 class LoginUseCase {
   LoginUseCase({
@@ -20,7 +20,7 @@ class LoginUseCase {
   /// exists.
   /// Throws [WrongPasswordException] if a wrong [password] is used.
   Future<User> loginWithEmail(String email, String password) async {
-    if (!LoginUtils.validateEmail(email)) {
+    if (!AuthUtils.validateEmail(email)) {
       throw InvalidEmailException(email);
     }
 

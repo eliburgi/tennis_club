@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'form_bloc.dart';
-
 class EmailFormField extends StatefulWidget {
   @override
   _EmailFormFieldState createState() => _EmailFormFieldState();
@@ -28,7 +26,6 @@ class _EmailFormFieldState extends State<EmailFormField> {
   Widget build(BuildContext context) {
     return TextFormField(
       controller: _controller,
-      validator: Provider.of<FormBloc>(context).validateEmail,
       decoration: InputDecoration(
         prefixIcon: Icon(
           Icons.email,

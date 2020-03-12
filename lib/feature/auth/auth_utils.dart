@@ -1,4 +1,4 @@
-abstract class LoginUtils {
+abstract class AuthUtils {
   static bool validateEmail(String email) {
     if (email == null) return false;
     Pattern pattern =
