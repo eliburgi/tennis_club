@@ -1,7 +1,7 @@
 @TestOn('vm')
 import 'package:mockito/mockito.dart';
 import 'package:flutter_test/flutter_test.dart';
-
+import 'package:tennis_club/feature/auth/auth_failures.dart';
 import 'package:tennis_club/feature/auth/auth_service.dart';
 import 'package:tennis_club/feature/auth/login/login_usecase.dart';
 
@@ -23,8 +23,8 @@ void main() {
       final pw = 'password';
 
       expect(
-        () => usecase.loginWithEmail(invalidEmail, pw),
-        throwsA(isInstanceOf<InvalidEmailException>()),
+        () => usecase.login(invalidEmail, pw),
+        throwsA(isInstanceOf<InvalidEmailFailure>()),
       );
       verifyNever(authService.login(any, any));
     });
@@ -34,11 +34,11 @@ void main() {
       final pw = 'password';
 
       when(authService.login(any, any))
-          .thenAnswer((_) => throw AuthServiceException.accountNotFound);
+          .thenAnswer((_) => throw AccountNotFoundFailure);
 
       expect(
-        () => usecase.loginWithEmail(notRegisteredEmail, pw),
-        throwsA(isInstanceOf<AccountNotFoundException>()),
+        () => usecase.login(notRegisteredEmail, pw),
+        throwsA(isInstanceOf<AccountNotFoundFailure>()),
       );
       verify(authService.login(any, any)).called(1);
     });
@@ -48,11 +48,11 @@ void main() {
       final wrongPw = 'wrongPassword';
 
       when(authService.login(any, any))
-          .thenAnswer((_) => throw AuthServiceException.wrongPassword);
+          .thenAnswer((_) => throw WrongPasswordFailure);
 
       expect(
-        () => usecase.loginWithEmail(email, wrongPw),
-        throwsA(isInstanceOf<WrongPasswordException>()),
+        () => usecase.login(email, wrongPw),
+        throwsA(isInstanceOf<WrongPasswordFailure>()),
       );
       verify(authService.login(any, any)).called(1);
     });

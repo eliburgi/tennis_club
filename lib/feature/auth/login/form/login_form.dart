@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tennis_club/widget/margin.dart';
 
+import '../login_notifier.dart';
 import 'email_field.dart';
 import 'password_field.dart';
 import 'login_button.dart';
@@ -20,6 +21,8 @@ class _LoginFormState extends State<LoginForm> {
 
   @override
   Widget build(BuildContext context) {
+    final loginNotifier = Provider.of<LoginNotifier>(context);
+
     return Padding(
       padding: const EdgeInsets.all(32.0),
       child: Form(
