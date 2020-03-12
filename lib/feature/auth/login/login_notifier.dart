@@ -18,6 +18,8 @@ class LoginNotifier with ChangeNotifier {
   bool get hasFailure => _failure != null;
 
   void login(String email, String password) async {
+    if (loading) return;
+
     try {
       _setLoading(true);
       await authNotifier.login(email, password);

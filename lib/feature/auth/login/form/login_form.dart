@@ -13,30 +13,54 @@ class LoginForm extends StatefulWidget {
 }
 
 class _LoginFormState extends State<LoginForm> {
-  final _formKey = GlobalKey<FormState>();
+  TextEditingController _emailController;
+  TextEditingController _passwordController;
 
-  void _onSubmit() {
-    _formKey.currentState.validate();
+  @override
+  void initState() {
+    super.initState();
+    _emailController = TextEditingController();
+    _passwordController = TextEditingController();
+  }
+
+  @override
+  void dispose() {
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  void _onLoginButtonPressed() {
+    String email = _emailController.value.text;
+    String password = _passwordController.value.text;
+    Provider.of<LoginNotifier>(context, listen: false).login(email, password);
   }
 
   @override
   Widget build(BuildContext context) {
-    final loginNotifier = Provider.of<LoginNotifier>(context);
+    LoginNotifier loginNotifier = Provider.of(context);
+    ThemeData theme = Theme.of(context);
 
     return Padding(
       padding: const EdgeInsets.all(32.0),
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            EmailFormField(),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          EmailFormField(controller: _emailController),
+          Margin.vertical(12.0),
+          PasswordFormField(controller: _passwordController),
+          if (loginNotifier.hasFailure) ...[
             Margin.vertical(12.0),
-            PasswordFormField(),
-            Margin.vertical(24.0),
-            LoginButton(),
+            Text(
+              loginNotifier.failure.toString(),
+              style: theme.textTheme.caption.copyWith(
+                color: theme.primaryColor,
+              ),
+            ),
           ],
-        ),
+          Margin.vertical(24.0),
+          LoginButton(onTap: _onLoginButtonPressed),
+        ],
       ),
     );
   }

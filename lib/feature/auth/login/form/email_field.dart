@@ -1,31 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class EmailFormField extends StatefulWidget {
-  @override
-  _EmailFormFieldState createState() => _EmailFormFieldState();
-}
+class EmailFormField extends StatelessWidget {
+  EmailFormField({@required this.controller}) : assert(controller != null);
 
-class _EmailFormFieldState extends State<EmailFormField> {
-  TextEditingController _controller;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = TextEditingController();
-    _controller.addListener(() => setState(() {}));
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
+  final TextEditingController controller;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
-      controller: _controller,
+      controller: controller,
       decoration: InputDecoration(
         prefixIcon: Icon(
           Icons.email,

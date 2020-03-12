@@ -29,8 +29,8 @@ abstract class AppColors {
   static const primaryDark = primary;
   static const primaryBrightness = Brightness.dark;
 
-  static const accent = primary;
-  static const accentBrightness = primaryBrightness;
+  static const accent = Colors.white;
+  static const accentBrightness = Brightness.light;
 
   static const scaffoldBackground = Color(0xFFFCFCFC);
   static const error = primary;

@@ -7,8 +7,10 @@ import 'form/login_form.dart';
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => LoginNotifier(Provider.of<AuthNotifier>(context)),
+    return ChangeNotifierProvider<LoginNotifier>(
+      create: (context) => LoginNotifier(
+        Provider.of<AuthNotifier>(context, listen: false),
+      ),
       child: Scaffold(
         body: SafeArea(
           top: true,

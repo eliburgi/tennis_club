@@ -12,13 +12,18 @@ class DependencyInjection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Provider.value(
-      value: FakeAuthService(),
-      child: ChangeNotifierProvider(
-        create: (context) => AuthNotifier(
-          LoginUseCase(authService: Provider.of<AuthService>(context)),
+    return MultiProvider(
+      providers: [
+        Provider<AuthService>(
+          create: (_) => FakeAuthService(),
         ),
-      ),
+        ChangeNotifierProvider<AuthNotifier>(
+          create: (context) => AuthNotifier(LoginUseCase(
+            authService: Provider.of<AuthService>(context, listen: false),
+          )),
+        ),
+      ],
+      child: child,
     );
   }
 }

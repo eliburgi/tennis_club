@@ -18,7 +18,7 @@ void main() {
   });
 
   group('login with email - ', () {
-    test('invalid email', () {
+    test('email is required', () {
       final invalidEmail = 'invalid-email-adr';
       final pw = 'password';
 

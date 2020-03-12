@@ -25,6 +25,22 @@ class WrongPasswordFailure extends AuthFailure {
   String toString() => 'Wrong password.';
 }
 
+/// Indicates that the provided email is `null` or empty.
+///
+/// For example, when a user wants to login without entering his email address.
+class EmailRequiredFailure extends AuthFailure {
+  @override
+  String toString() => 'Please enter your email address.';
+}
+
+/// Indicates that the provided password is `null` or empty.
+///
+/// For example, when a user wants to login without entering his password.
+class PasswordRequiredFailure extends AuthFailure {
+  @override
+  String toString() => 'Please enter your password.';
+}
+
 /// Indicates that the email is invalid and can not be used to create an account.
 ///
 /// For example, when a new user wants to be registered.
