@@ -9,4 +9,7 @@ abstract class AuthService {
   /// Throws [AccountNotFoundFailure] if no account for [email] exists.
   /// Throws [WrongPasswordFailure] if a wrong [password] is used.
   Future<User> login(String email, String password);
+
+  /// Logs out the user.
+  Future logout();
 }

@@ -4,6 +4,7 @@ import 'package:tennis_club/feature/auth/auth_notifier.dart';
 import 'package:tennis_club/feature/auth/auth_service.dart';
 import 'package:tennis_club/feature/auth/auth_service_fake.dart';
 import 'package:tennis_club/feature/auth/login/login_usecase.dart';
+import 'package:tennis_club/feature/auth/logout/logout_usecase.dart';
 
 class DependencyInjection extends StatelessWidget {
   DependencyInjection({@required this.child}) : assert(child != null);
@@ -18,9 +19,14 @@ class DependencyInjection extends StatelessWidget {
           create: (_) => FakeAuthService(),
         ),
         ChangeNotifierProvider<AuthNotifier>(
-          create: (context) => AuthNotifier(LoginUseCase(
-            authService: Provider.of<AuthService>(context, listen: false),
-          )),
+          create: (context) => AuthNotifier(
+            loginUseCase: LoginUseCase(
+              authService: Provider.of<AuthService>(context, listen: false),
+            ),
+            logoutUseCase: LogoutUseCase(
+              authService: Provider.of<AuthService>(context, listen: false),
+            ),
+          ),
         ),
       ],
       child: child,

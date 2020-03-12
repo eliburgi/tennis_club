@@ -6,4 +6,9 @@ class FakeAuthService implements AuthService {
     await Future.delayed(Duration(seconds: 3));
     return User(id: '#1', name: 'Test User');
   }
+
+  @override
+  Future logout() {
+    return Future.value();
+  }
 }

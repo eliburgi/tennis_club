@@ -1,13 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:tennis_club/feature/auth/login/login_usecase.dart';
+import 'package:tennis_club/feature/auth/logout/logout_usecase.dart';
 
 import 'user.dart';
 
 /// Represents a [User] session, i.e. keeps track of a currently logged in user.
 class AuthNotifier with ChangeNotifier {
-  AuthNotifier(this.loginUseCase);
+  AuthNotifier({
+    @required this.loginUseCase,
+    @required this.logoutUseCase,
+  })  : assert(loginUseCase != null),
+        assert(logoutUseCase != null);
 
   final LoginUseCase loginUseCase;
+  final LogoutUseCase logoutUseCase;
 
   /// Initially set to [AuthState.loggedOut].
   AuthState get state => _state;
@@ -38,7 +44,22 @@ class AuthNotifier with ChangeNotifier {
     }
   }
 
-  void logout() {}
+  /// Logs out the [user].
+  ///
+  /// Short-circuits if no [User] is currently logged in.
+  ///
+  /// See [LogoutUseCase.logout] for possible thrown failures.
+  Future logout() async {
+    if (state != AuthState.loggedIn) return;
+
+    try {
+      await logoutUseCase.logout();
+      _user = null;
+      _setState(AuthState.loggedOut);
+    } catch (failure) {
+      throw failure;
+    }
+  }
 
   void _setState(AuthState state) {
     _state = state;
