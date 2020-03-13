@@ -9,6 +9,7 @@ ThemeData buildTheme() => ThemeData.light().copyWith(
       accentColor: AppColors.accent,
       accentColorBrightness: AppColors.accentBrightness,
       scaffoldBackgroundColor: AppColors.scaffoldBackground,
+      errorColor: AppColors.primary,
 
       // TEXT
       textTheme: TextThemes.normal,
@@ -84,7 +85,7 @@ abstract class TextThemes {
       fontFamily: 'Raleway',
       fontSize: 12.0,
       fontWeight: FontWeight.bold,
-      color: TextColors.normal1,
+      color: TextColors.normal2,
     ),
   );
 

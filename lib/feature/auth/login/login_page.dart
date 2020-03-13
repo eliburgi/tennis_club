@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tennis_club/feature/auth/login/app_logo.dart';
 import 'package:tennis_club/feature/auth/login/login_notifier.dart';
+import 'package:tennis_club/widget/margin.dart';
 import '../auth_notifier.dart';
 import 'form/login_form.dart';
 
@@ -15,13 +16,13 @@ class LoginPage extends StatelessWidget {
       child: Scaffold(
         body: SafeArea(
           top: true,
-          child: Stack(
+          child: Column(
+            mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Align(
-                alignment: Alignment(0, -0.7),
-                child: AppLogo(),
-              ),
-              Center(child: LoginForm()),
+              AppLogo(),
+              Margin.vertical(32.0),
+              LoginForm(),
             ],
           ),
         ),
