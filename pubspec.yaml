@@ -52,3 +52,8 @@ flutter:
     - family: Open Sans
       fonts: 
         - asset: fonts/OpenSans-Regular.ttf
+    - family: Bluefish Demo
+      fonts: 
+        - asset: fonts/Bluefish_Black_Italic_Demo.otf
+          weight: 700
+          style: italic

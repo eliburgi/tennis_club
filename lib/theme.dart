@@ -50,6 +50,18 @@ abstract class TextColors {
 
 abstract class TextThemes {
   static final normal = TextTheme(
+    headline3: TextStyle(
+      fontFamily: 'Bluefish Demo',
+      fontSize: 45.0,
+      fontWeight: FontWeight.bold,
+      color: TextColors.normal1,
+    ),
+    headline6: TextStyle(
+      fontFamily: 'Bluefish Demo',
+      fontSize: 20.0,
+      fontWeight: FontWeight.bold,
+      color: TextColors.normal1,
+    ),
     subtitle1: TextStyle(
       fontFamily: 'Raleway',
       fontSize: 14.0,
@@ -78,6 +90,8 @@ abstract class TextThemes {
 
   static final onPrimary = normal.merge(
     TextTheme(
+      headline3: TextStyle(color: TextColors.onPrimary1),
+      headline6: TextStyle(color: TextColors.onPrimary1),
       subtitle1: TextStyle(color: TextColors.onPrimary1),
       subtitle2: TextStyle(color: TextColors.onPrimary1),
       button: TextStyle(color: TextColors.onPrimary1),
