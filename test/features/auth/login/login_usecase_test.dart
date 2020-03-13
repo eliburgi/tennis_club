@@ -8,7 +8,7 @@ import 'package:tennis_club/feature/auth/login/login_usecase.dart';
 void main() {
   AuthService authService;
   LoginUseCase usecase;
-  setUpAll(() {
+  setUp(() {
     authService = MockAuthService();
     usecase = LoginUseCase(authService: authService);
   });
@@ -19,22 +19,22 @@ void main() {
 
   group('login with email - ', () {
     test('email is required', () {
-      final invalidEmail = 'invalid-email-adr';
+      final emptyEmail = '';
       final pw = 'password';
 
       expect(
-        () => usecase.login(invalidEmail, pw),
-        throwsA(isInstanceOf<InvalidEmailFailure>()),
+        () => usecase.login(emptyEmail, pw),
+        throwsA(isInstanceOf<EmailRequiredFailure>()),
       );
       verifyNever(authService.login(any, any));
     });
 
     test('account does not exist', () async {
-      final notRegisteredEmail = 'not.found@test.com';
+      final notRegisteredEmail = 'notfound@test.com';
       final pw = 'password';
 
       when(authService.login(any, any))
-          .thenAnswer((_) => throw AccountNotFoundFailure);
+          .thenAnswer((_) => throw AccountNotFoundFailure());
 
       expect(
         () => usecase.login(notRegisteredEmail, pw),
@@ -48,7 +48,7 @@ void main() {
       final wrongPw = 'wrongPassword';
 
       when(authService.login(any, any))
-          .thenAnswer((_) => throw WrongPasswordFailure);
+          .thenAnswer((_) => throw WrongPasswordFailure());
 
       expect(
         () => usecase.login(email, wrongPw),
