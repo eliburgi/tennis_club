@@ -75,6 +75,11 @@ abstract class TextThemes {
       fontWeight: FontWeight.bold,
       color: TextColors.normal1,
     ),
+    bodyText2: TextStyle(
+      fontFamily: 'Raleway',
+      fontSize: 14.0,
+      color: TextColors.normal1,
+    ),
     button: TextStyle(
       fontFamily: 'Raleway',
       fontSize: 14.0,
@@ -95,6 +100,7 @@ abstract class TextThemes {
       headline6: TextStyle(color: TextColors.onPrimary1),
       subtitle1: TextStyle(color: TextColors.onPrimary1),
       subtitle2: TextStyle(color: TextColors.onPrimary1),
+      bodyText2: TextStyle(color: TextColors.onPrimary1),
       button: TextStyle(color: TextColors.onPrimary1),
     ),
   );
