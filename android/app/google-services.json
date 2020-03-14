@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "218035569762",
+    "firebase_url": "https://tennisclub-f1197.firebaseio.com",
+    "project_id": "tennisclub-f1197",
+    "storage_bucket": "tennisclub-f1197.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:218035569762:android:b1d863d97e9f0428a5fd3b",
+        "android_client_info": {
+          "package_name": "at.eliburgi.tennisclub"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "218035569762-agjio1ao9q935k9110inb5ni4l18pded.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3HR_V9zLO9GqylTlcT2DIvuHyDtRw40Y"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "218035569762-agjio1ao9q935k9110inb5ni4l18pded.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
