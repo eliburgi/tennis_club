@@ -11,7 +11,7 @@ class HomePage extends StatelessWidget {
       child: Scaffold(
         appBar: ShiftingTabBar(tabs: [
           ShiftingTab(text: 'Home', icon: Icon(Icons.home)),
-          ShiftingTab(text: 'Courts', icon: Icon(Icons.restaurant)),
+          ShiftingTab(text: 'Reservations', icon: Icon(Icons.calendar_today)),
           ShiftingTab(text: 'Profile', icon: Icon(Icons.person)),
         ]),
         body: TabBarView(
@@ -42,7 +42,7 @@ class _ProfilePage extends StatelessWidget {
       child: FlatButton(
         onPressed: () async {
           try {
-            await Provider.of<AuthNotifier>(context).logout();
+            await Provider.of<AuthNotifier>(context, listen: false).logout();
           } catch (failure) {
             Scaffold.of(context).showSnackBar(
               SnackBar(content: Text('Logout failed!')),

@@ -76,7 +76,7 @@ abstract class TextThemes {
       color: TextColors.normal1,
     ),
     bodyText2: TextStyle(
-      fontFamily: 'Raleway',
+      fontFamily: 'Open Sans',
       fontSize: 14.0,
       color: TextColors.normal1,
     ),
