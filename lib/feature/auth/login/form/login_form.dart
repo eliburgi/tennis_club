@@ -33,6 +33,9 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   void _onLoginButtonPressed() {
+    // hide keyboard
+    FocusScope.of(context).requestFocus(FocusNode());
+
     String email = _emailController.value.text;
     String password = _passwordController.value.text;
     Provider.of<LoginNotifier>(context, listen: false).login(email, password);

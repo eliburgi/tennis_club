@@ -54,6 +54,14 @@ class InvalidPasswordFailure extends AuthFailure {
   String toString() => 'Please enter a valid password.';
 }
 
+/// Indicates that the auth process failed because of no internet.
+///
+/// For example, when a user wants to login without internet connection.
+class NoInternetFailure extends AuthFailure {
+  @override
+  String toString() => 'Check your internet connection and try again.';
+}
+
 class UnknownAuthFailure extends AuthFailure {
   UnknownAuthFailure([this.cause]);
 

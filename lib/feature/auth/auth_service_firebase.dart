@@ -37,6 +37,8 @@ class FirebaseAuthService implements AuthService {
           throw WrongPasswordFailure();
         case 'ERROR_USER_NOT_FOUND':
           throw AccountNotFoundFailure();
+        case 'ERROR_NETWORK_REQUEST_FAILED':
+          throw NoInternetFailure();
         default:
           throw UnknownAuthFailure(pErr.code);
       }
