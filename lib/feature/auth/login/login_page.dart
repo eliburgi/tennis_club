@@ -21,7 +21,7 @@ class LoginPage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               AppLogo(),
-              Margin.vertical(32.0),
+              Margin.vertical(48.0),
               LoginForm(),
             ],
           ),

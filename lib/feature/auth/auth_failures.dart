@@ -4,9 +4,6 @@ import 'package:equatable/equatable.dart';
 abstract class AuthFailure extends Equatable {
   @override
   List<Object> get props => [];
-
-  @override
-  String toString() => 'Unknown authentication error.';
 }
 
 /// Indicates that no account with the given email exists.
@@ -44,9 +41,24 @@ class PasswordRequiredFailure extends AuthFailure {
 /// Indicates that the email is invalid and can not be used to create an account.
 ///
 /// For example, when a new user wants to be registered.
-class InvalidEmailFailure extends AuthFailure {}
+class InvalidEmailFailure extends AuthFailure {
+  @override
+  String toString() => 'Please enter a valid email address.';
+}
 
 /// Indicates that the password is invalid and can not be used.
 ///
 /// For example, when a user wants to change his password.
-class InvalidPasswordFailure extends AuthFailure {}
+class InvalidPasswordFailure extends AuthFailure {
+  @override
+  String toString() => 'Please enter a valid password.';
+}
+
+class UnknownAuthFailure extends AuthFailure {
+  UnknownAuthFailure([this.cause]);
+
+  final dynamic cause;
+
+  @override
+  String toString() => 'Unknown authentication error: $cause.';
+}

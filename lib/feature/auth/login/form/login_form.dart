@@ -52,7 +52,7 @@ class _LoginFormState extends State<LoginForm> {
   Widget build(BuildContext context) {
     LoginNotifier loginNotifier = Provider.of(context);
     return Padding(
-      padding: const EdgeInsets.all(32.0),
+      padding: const EdgeInsets.symmetric(horizontal: 32.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,

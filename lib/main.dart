@@ -14,6 +14,7 @@ class TennisClubApp extends StatelessWidget {
     AuthNotifier authNotifier = Provider.of(context);
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Tennis Club',
       theme: buildTheme(),
       home: authNotifier.state == AuthState.loggedIn ? HomePage() : LoginPage(),
